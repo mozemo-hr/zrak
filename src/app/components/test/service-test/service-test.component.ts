@@ -20,7 +20,7 @@ export class ServiceTestComponent implements OnInit {
 
     // get data for one device with start and end time values defined in UTC unix time
     // !important: start and end time must be declared either with 0 or using a 13 digit number
-    var deviceId = '0f48b8d0-87fa-11eb-8bcc-c186228958f2';
+    var deviceId = 'a130bd80-a607-11eb-8bcc-c186228958f2';
     var start = 0; // 0 or 13 digits!
     var end = 2147483647000; // 13 digits!
     this._deviceService.getDeviceTimespan(deviceId, start, end).subscribe(data => {
