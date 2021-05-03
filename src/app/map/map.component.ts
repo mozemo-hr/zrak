@@ -48,7 +48,7 @@ export class MapComponent implements OnInit, AfterContentInit {
         })
       .addTo(this.map);
       
-    tileLayer.getContainer().style.filter = 'opacity(75%)';
+    tileLayer.getContainer().style.filter = 'grayscale(0.8) opacity(75%)';
 
     this.deviceService.getDeviceLatest().subscribe(data => {
       var markers = new MarkerClusterGroup({disableClusteringAtZoom: 12, zoomToBoundsOnClick: true, spiderfyOnMaxZoom: false});
