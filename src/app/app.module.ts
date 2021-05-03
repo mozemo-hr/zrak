@@ -7,19 +7,10 @@ import { AppComponent } from './app.component';
 import { TestModule } from './components/test/test.module';
 import { MapComponent } from './map/map.component';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    MapComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    TestModule
-  ],
+  declarations: [AppComponent, MapComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, TestModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
