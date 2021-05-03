@@ -39,10 +39,23 @@ export class MapComponent implements OnInit, AfterContentInit {
         })
       .addTo(this.map);
       
-      var markers = new MarkerClusterGroup();
-      markers.addLayer(Leaflet.marker([45.8107711,15.9516637]));
-      markers.addLayer(Leaflet.marker([45.810,15.951]));
-      markers.addLayer(Leaflet.marker([45.810196,15.9688975]));
+      var markers = new MarkerClusterGroup({disableClusteringAtZoom: 12, zoomToBoundsOnClick: true, spiderfyOnMaxZoom: false});
+      markers.addLayer(Leaflet.circle([45.8107711,15.9516637], {
+        color: '#FE9191',
+        fillOpacity: 0.5,
+        radius: 200
+      }));
+      markers.addLayer(Leaflet.circle([45.810,15.951], {
+        color: '#FE9191',
+        fillOpacity: 0.5,
+        radius: 200
+      }));
+      
+      markers.addLayer(Leaflet.circle([45.810196,15.9688975], {
+        color: '#FE9191',
+        fillOpacity: 0.5,
+        radius: 200,
+      }));
       this.map.addLayer(markers);
       
   }
