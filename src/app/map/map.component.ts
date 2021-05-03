@@ -1,9 +1,18 @@
 import * as Leaflet from 'leaflet';
 import { MarkerClusterGroup } from "leaflet.markercluster";
 import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { DeviceService } from '../_services/device.service';
 
 const views = {
-  zagreb: { lat: 45.8150, long: 15.9819, zoom: 13}
+  zagreb: { lat: 45.795, long: 15.9819, zoom: 13}
+}
+
+const pmToColor = (pm25, pm10) => {
+  // TODO add pm10 to the equation
+  if (pm25 < 20) { return '#CBD244'; }
+  else if (pm25 < 30) { return '#FFD53B'; }
+  else if (pm25 < 75) { return '#FF7B7B'; }
+  else { return '#D963FF';}
 }
 
 @Component({
@@ -15,7 +24,7 @@ export class MapComponent implements OnInit, AfterContentInit {
   
   map: Leaflet.Map;
 
-  constructor() { }
+  constructor(private deviceService: DeviceService) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +39,7 @@ export class MapComponent implements OnInit, AfterContentInit {
     https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png
     */
     
-    Leaflet
+    const tileLayer = Leaflet
       .tileLayer(
         'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
         {
@@ -39,25 +48,21 @@ export class MapComponent implements OnInit, AfterContentInit {
         })
       .addTo(this.map);
       
+    tileLayer.getContainer().style.filter = 'opacity(75%)';
+
+    this.deviceService.getDeviceLatest().subscribe(data => {
       var markers = new MarkerClusterGroup({disableClusteringAtZoom: 12, zoomToBoundsOnClick: true, spiderfyOnMaxZoom: false});
-      markers.addLayer(Leaflet.circle([45.8107711,15.9516637], {
-        color: '#FE9191',
-        fillOpacity: 0.5,
-        radius: 200
-      }));
-      markers.addLayer(Leaflet.circle([45.810,15.951], {
-        color: '#FE9191',
-        fillOpacity: 0.5,
-        radius: 200
-      }));
-      
-      markers.addLayer(Leaflet.circle([45.810196,15.9688975], {
-        color: '#FE9191',
-        fillOpacity: 0.5,
-        radius: 200,
-      }));
+      for (const sensor of data) {
+        console.log(sensor);
+        if (sensor.x == null || sensor.y == null || sensor.pm25 == null) continue;
+        markers.addLayer(Leaflet.circle([sensor.y,sensor.x], {
+          color: pmToColor(sensor.pm25, sensor.pm10),
+          fillOpacity: 0.6,
+          radius: 200
+        }));
+      }
       this.map.addLayer(markers);
-      
+    });
   }
 
 }
