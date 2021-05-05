@@ -63,7 +63,6 @@ export class MapComponent implements OnInit, AfterContentInit {
         spiderfyOnMaxZoom: false,
       });
       for (const sensor of data) {
-        console.log(sensor);
         if (sensor.x == null || sensor.y == null || sensor.pm25 == null)
           continue;
         markers.addLayer(
