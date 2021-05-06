@@ -1,0 +1,53 @@
+header {
+  background: white;
+  z-index: 1;
+  position: fixed;
+  height: 190px;
+  width: 100%;
+  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.9);
+  padding: 39px 40px;
+}
+
+header .project-title {
+  margin-bottom: 42px;
+
+  font-family: Surogat Condensed;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 47px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
+header .legend-title {
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+header .legend {
+  display: flex;
+
+  .legend-item {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+
+  .low {
+    background-color: #cbd244;
+  }
+  .moderate {
+    background-color: #ffd53b;
+  }
+  .high {
+    background-color: #ff7b7b;
+  }
+  .extreme {
+    background-color: #d963ff;
+  }
+}
