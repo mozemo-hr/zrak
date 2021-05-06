@@ -1,10 +1,13 @@
 :host {
   position: absolute;
-  top: 40px;
+  top: 300px;
   left: 40px;
+  z-index: 1000;
 }
 
 .stations-panel {
   background: white;
   padding: 34px 27px;
+  width: 400px;
+  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.15);
 }
