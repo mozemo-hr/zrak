@@ -1,13 +1,13 @@
 import * as Leaflet from 'leaflet';
 import { MarkerClusterGroup } from 'leaflet.markercluster';
 import { Component, OnInit, AfterContentInit } from '@angular/core';
-import { DeviceService } from '../_services/device.service';
+import { DeviceService } from '@app/_services/device.service';
 
 const views = {
   zagreb: { lat: 45.795, long: 15.9819, zoom: 13 },
 };
 
-const pmToColor = (pm25, pm10) => {
+const pmToColor = (pm25: number, pm10: number) => {
   // TODO add pm10 to the equation
   if (pm25 < 20) {
     return '#CBD244';
@@ -33,10 +33,17 @@ export class MapComponent implements OnInit, AfterContentInit {
   ngOnInit(): void {}
 
   ngAfterContentInit(): void {
-    this.map = Leaflet.map('map').setView(
-      [views.zagreb.lat, views.zagreb.long],
-      views.zagreb.zoom
-    );
+    this.map = Leaflet.map('map', {
+      maxZoom: 20,
+      minZoom: 6,
+      zoomControl: false,
+    }).setView([views.zagreb.lat, views.zagreb.long], views.zagreb.zoom);
+
+    Leaflet.control
+      .zoom({
+        position: 'topright',
+      })
+      .addTo(this.map);
 
     /*
     More on Tile servers here – https://wiki.openstreetmap.org/wiki/Tile_servers
@@ -70,6 +77,8 @@ export class MapComponent implements OnInit, AfterContentInit {
             color: pmToColor(sensor.pm25, sensor.pm10),
             fillOpacity: 0.6,
             radius: 200,
+          }).on('click', (e) => {
+            console.log('clicked ', sensor);
           })
         );
       }
