@@ -4,7 +4,7 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { DeviceService } from '@app/_services/device.service';
 
 const views = {
-  zagreb: { lat: 45.795, long: 15.9819, zoom: 13 },
+  zagreb: { lat: 45.795, long: 15.9319, zoom: 12 },
 };
 
 const pmToColor = (pm25: number, pm10: number) => {

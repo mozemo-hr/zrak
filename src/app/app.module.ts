@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -22,6 +23,7 @@ import { StationsPanelComponent } from './components/stations-panel/stations-pan
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatListModule,
     MatToolbarModule,
     TestModule,
     BrowserAnimationsModule,
