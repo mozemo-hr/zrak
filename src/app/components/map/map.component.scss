@@ -1,11 +1,18 @@
 :host {
+  flex-grow: 1;
+}
+
+.map-container {
+  position: relative;
+  top: 0;
+  left: 0;
   height: 100%;
-  width: 100%;
 }
 
 #map {
   position: absolute;
-  top: 190px;
+  top: 0;
   bottom: 0;
+  height: 100%;
   width: 100%;
 }
