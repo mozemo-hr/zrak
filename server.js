@@ -9,6 +9,7 @@ app.use(express.static(__dirname + '/dist/zrak'));
 // redirect to https on Heroku
 // https://stackoverflow.com/a/23894573
 app.use(function (req, res, next) {
+  console.log("Headers", req.headers);
   if (
     req.headers['x-forwarded-proto'] &&
     req.headers['x-forwarded-proto'] !== 'https'
