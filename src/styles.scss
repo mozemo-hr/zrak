@@ -17,6 +17,24 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'TyponineSansPro Text';
+  src: url('assets/fonts/TyponineSansPro Text.eot');
+  src: url('assets/fonts/TyponineSansPro Text.otf') format('opentype'),
+    url('assets/fonts/TyponineSansPro Text.woff') format('woff'),
+    url('assets/fonts/TyponineSansPro Text.ttf') format('truetype');
+  font-style: normal;
+}
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: '"TyponineSansPro Text", Roboto, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+);
+@include angular-material-typography($custom-typography);
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
