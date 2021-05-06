@@ -8,6 +8,15 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
+@font-face {
+  font-family: 'Surogat Black Italic';
+  src: url('assets/fonts/SurogatCond-BlackItalic.eot');
+  src: url('assets/fonts/SurogatCond-BlackItalic.otf') format('opentype'),
+    url('assets/fonts/SurogatCond-BlackItalic.woff') format('woff'),
+    url('assets/fonts/SurogatCond-BlackItalic.ttf') format('truetype');
+  font-style: normal;
+}
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/

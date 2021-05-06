@@ -11,14 +11,18 @@ header {
 header .project-title {
   margin-bottom: 42px;
 
-  font-family: Surogat Condensed;
+  font-family: 'Surogat Black Italic', sans-serif;
   font-style: italic;
   font-weight: 900;
   font-size: 48px;
   line-height: 47px;
   /* identical to box height */
 
-  color: #000000;
+  a {
+    display: inline;
+    text-decoration: none;
+    color: #000000;
+  }
 }
 
 header .legend-title {
