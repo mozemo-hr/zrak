@@ -11,6 +11,7 @@ import { TestModule } from './components/test/test.module';
 import { MapComponent } from './components/map/map.component';
 import { HeaderComponent } from './components/header/header.component';
 import { StationsPanelComponent } from './components/stations-panel/stations-panel.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { StationsPanelComponent } from './components/stations-panel/stations-pan
     MapComponent,
     HeaderComponent,
     StationsPanelComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

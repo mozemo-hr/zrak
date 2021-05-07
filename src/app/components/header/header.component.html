@@ -1,14 +1,24 @@
-<!-- <mat-toolbar>
-  <span class="project-title">Otvoreni zrak</span>
-</mat-toolbar> -->
+<mat-toolbar class="header-toolbar">
+  <mat-toolbar-row class="title">
+    <span class="project-title"><a href="/">Otvoreni zrak</a></span>
+    <span class="about-links"></span>
+    <span class="about-links"></span>
+    <span class="about-links"><a href="/inicijativa">O inicijativi ></a></span>
+    <span class="about-links"><a href="/zasto-mjerimo">Zašto mjerimo lebdeće čestice ></a></span>
+    <span class="about-links"><a href="/legenda">O legendi ></a></span>
+    <span class="about-links"></span>
+    <span class="logo"><img src="assets/images/mozemo_logo_green_1.svg"></span>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="showLegend">
+    <span class="legend-title">Koncentracija lebdećih čestica</span>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="showLegend">
+    <span class="legend">
+      <div class="legend-item low">Niska</div>
+      <div class="legend-item moderate">Umjerena</div>
+      <div class="legend-item high">Visoka</div>
+      <div class="legend-item extreme">Vrlo visoka</div>
+    </span>
+  </mat-toolbar-row>
 
-<header>
-  <div class="project-title"><a href="/">Otvoreni zrak</a></div>
-  <div class="legend-title">Koncentracija lebdećih čestica</div>
-  <div class="legend">
-    <div class="legend-item low">Niska</div>
-    <div class="legend-item moderate">Umjerena</div>
-    <div class="legend-item high">Visoka</div>
-    <div class="legend-item extreme">Vrlo visoka</div>
-  </div>
-</header>
+</mat-toolbar>
