@@ -11,7 +11,7 @@ import { TestModule } from './components/test/test.module';
 import { MapComponent } from './components/map/map.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DevicesPanelComponent } from './components/devices-panel/devices-panel.component';
-import { DeviceDetailsComponent } from './components/device-details/device-details.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { DeviceDetailsComponent } from './components/device-details/device-detai
     MapComponent,
     HeaderComponent,
     DevicesPanelComponent,
-    DeviceDetailsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
