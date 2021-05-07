@@ -10,14 +10,16 @@ import { AppComponent } from './app.component';
 import { TestModule } from './components/test/test.module';
 import { MapComponent } from './components/map/map.component';
 import { HeaderComponent } from './components/header/header.component';
-import { StationsPanelComponent } from './components/stations-panel/stations-panel.component';
+import { DevicesPanelComponent } from './components/devices-panel/devices-panel.component';
+import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     HeaderComponent,
-    StationsPanelComponent,
+    DevicesPanelComponent,
+    DeviceDetailsComponent,
   ],
   imports: [
     BrowserModule,

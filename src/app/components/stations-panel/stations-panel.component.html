@@ -1,9 +1,0 @@
-<div class="stations-panel">
-  <mat-list>
-    <h3 mat-subheader>{{ this.devices?.length }} MJERNE STANICE</h3>
-    <mat-list-item *ngFor="let device of this.devices; last as last">
-      <h4 mat-line>{{ device.name }}</h4>
-      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-    </mat-list-item>
-  </mat-list>
-</div>
