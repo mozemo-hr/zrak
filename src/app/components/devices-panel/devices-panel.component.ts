@@ -21,7 +21,6 @@ export class DevicesPanelComponent implements OnInit {
   }
 
   openDetails(device: Device): void {
-    console.log(device);
     this.deviceService.selectedDevice = device;
   }
 }
