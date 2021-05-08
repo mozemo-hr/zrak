@@ -29,7 +29,8 @@ export class DeviceService {
 
   getDeviceLatest(): Observable<Device[]> {
     return this.httpClient.get<Device[]>(
-      `${environment.apiUrl}/device/getLatest`
+      `${environment.apiUrl}/device/getLatest`,
+      { params: { city: 'zagreb' } }
     );
   }
 

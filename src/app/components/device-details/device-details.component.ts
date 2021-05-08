@@ -18,4 +18,8 @@ export class DeviceDetailsComponent implements OnInit {
     console.log('close details');
     this.deviceService.deselectDevice();
   }
+
+  deviceColor() {
+    return this.deviceService.pmToColor(this.device.pm25, this.device.pm10);
+  }
 }

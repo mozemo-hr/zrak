@@ -1,12 +1,41 @@
 <div class="device-details">
-  <div class="device-details-header">
-    <h4 subheading-1>{{ this.device.name }}</h4>
+  <div
+    class="device-details-header"
+    [style.background-color]="this.deviceColor()"
+  >
+    <div class="header-text">
+      <span class="station-label">MJERNA POSTAJA</span>
+      <h4 subheading-1>{{ this.device.name }}</h4>
+    </div>
     <mat-icon
       (click)="closeDetails()"
       aria-hidden="false"
-      aria-label="home icon"
+      aria-label="close icon"
       class="close"
       >close</mat-icon
     >
+  </div>
+  <div class="device-details-content">
+    <table class="mat-table">
+      <thead>
+        <tr class="mat-header-row">
+          <th class="mat-header-cell">KONCENTRACIJA LEBDEĆIH ČESTICA</th>
+          <th class="mat-header-cell">PM2.5</th>
+          <th class="mat-header-cell">PM10</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="mat-row">
+          <td class="mat-header-cell">Na postaji</td>
+          <td class="mat-cell">{{ device.pm25 | number: '.0-2' }}</td>
+          <td class="mat-cell">{{ device.pm10 | number: '.0-2' }}</td>
+        </tr>
+        <!-- <tr class="mat-row">
+          <td class="mat-header-cell">Inače u ovo vrijeme</td>
+          <td class="mat-cell">{{ device.pm25 | number: '.0-2' }}</td>
+          <td class="mat-cell">{{ device.pm10 | number: '.0-2' }}</td>
+        </tr> -->
+      </tbody>
+    </table>
   </div>
 </div>

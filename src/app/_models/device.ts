@@ -7,5 +7,6 @@ export class Device {
   y?: number; // WGS84
   pm10: number;
   pm25: number;
+  label: string;
   lastMeasureTime: number;
 }

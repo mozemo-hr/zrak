@@ -1,7 +1,22 @@
 .device-details-header {
   display: flex;
   justify-content: space-between;
+  padding: 14px 16px 0 16px;
+
+  .station-label {
+    font-size: 11px;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+
   .close {
     cursor: pointer;
+  }
+}
+
+.device-details-content {
+  padding: 15px;
+  .mat-header-cell {
+    font-size: 11px;
   }
 }
