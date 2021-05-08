@@ -8,8 +8,8 @@
 .devices-panel {
   background: white;
   width: 25vw;
-  max-width: 300px;
-  min-width: 250px;
+  max-width: 400px;
+  min-width: 380px;
   max-height: 50vh;
   overflow: auto;
   box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.15);
@@ -17,5 +17,18 @@
 
   .mat-list-item {
     cursor: pointer;
+  }
+
+  .device-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .device-item-info {
+      display: flex;
+      flex-direction: row;
+      .material-icons {
+        margin-right: 18px;
+      }
+    }
   }
 }

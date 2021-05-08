@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CdkColumnDef } from '@angular/cdk/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,13 +31,12 @@ import { AboutComponent } from './components/about/about.component';
     HttpClientModule,
     MatIconModule,
     MatListModule,
-    MatTableModule,
     MatToolbarModule,
     MatSidenavModule,
     TestModule,
     BrowserAnimationsModule,
   ],
-  providers: [CdkColumnDef],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
