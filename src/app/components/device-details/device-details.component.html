@@ -27,8 +27,22 @@
       <tbody>
         <tr class="mat-row">
           <td class="mat-header-cell">Na postaji</td>
-          <td class="mat-cell">{{ device.pm25 | number: '.0-2' }}</td>
-          <td class="mat-cell">{{ device.pm10 | number: '.0-2' }}</td>
+          <td class="mat-cell">
+            <span class="material-icons" [style.color]="this.deviceColorPM25()">
+              circle
+            </span>
+            <span class="pm-value">
+              {{ device.pm25 | number: '.0-2' }}
+            </span>
+          </td>
+          <td class="mat-cell">
+            <span class="material-icons" [style.color]="this.deviceColorPM10()">
+              circle
+            </span>
+            <span class="pm-value">
+              {{ device.pm10 | number: '.0-2' }}
+            </span>
+          </td>
         </tr>
         <!-- <tr class="mat-row">
           <td class="mat-header-cell">Inače u ovo vrijeme</td>

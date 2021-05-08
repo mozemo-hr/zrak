@@ -13,7 +13,20 @@
       *ngFor="let device of this.devices; last as last"
       (click)="openDetails(device)"
     >
-      <h4 mat-line>{{ device.name }}</h4>
+      <div class="device-item">
+        <div class="device-item-info">
+          <span
+            class="material-icons"
+            [style.color]="
+              this.deviceService.pmToColor(device.pm25, device.pm10)
+            "
+          >
+            circle
+          </span>
+          <span mat-line>{{ device.name }}</span>
+        </div>
+        <span class="material-icons"> chevron_right </span>
+      </div>
       <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
     </mat-list-option>
   </mat-selection-list>

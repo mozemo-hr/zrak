@@ -16,7 +16,22 @@
 
 .device-details-content {
   padding: 15px;
+  .mat-table {
+    border-spacing: 0px 5px;
+  }
+  td,
+  th {
+    padding: 0.5rem;
+    text-align: left;
+  }
   .mat-header-cell {
-    font-size: 11px;
+    font-size: 12px;
+  }
+  .mat-cell {
+  }
+  .pm-value {
+    position: relative;
+    top: -7px;
+    font-size: 14px;
   }
 }

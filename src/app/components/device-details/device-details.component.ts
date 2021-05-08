@@ -22,4 +22,10 @@ export class DeviceDetailsComponent implements OnInit {
   deviceColor() {
     return this.deviceService.pmToColor(this.device.pm25, this.device.pm10);
   }
+  deviceColorPM25() {
+    return this.deviceService.pmToColor(this.device.pm25, undefined);
+  }
+  deviceColorPM10() {
+    return this.deviceService.pmToColor(undefined, this.device.pm10);
+  }
 }

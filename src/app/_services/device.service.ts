@@ -55,7 +55,9 @@ export class DeviceService {
     ];
     let pm25level: number, pm10level: number;
 
-    if (pm25 < 10) {
+    if (pm25 == null) {
+      pm25level = null;
+    } else if (pm25 < 10) {
       pm25level = 0;
     } else if (pm25 < 20) {
       pm25level = 1;
@@ -69,7 +71,9 @@ export class DeviceService {
       pm25level = 5;
     }
 
-    if (pm10 < 20) {
+    if (pm10 == null) {
+      pm10level = null;
+    } else if (pm10 < 20) {
       pm10level = 0;
     } else if (pm10 < 40) {
       pm10level = 1;
