@@ -1,3 +1,11 @@
 <div class="device-details">
-  <h3 mat-subheader>{{ this.device.name }}</h3>
+  <div class="device-details-header">
+    <h4 subheading-1>{{ this.device.name }}</h4>
+    <mat-icon
+      (click)="closeDetails()"
+      aria-hidden="false"
+      aria-label="home icon"
+      >close</mat-icon
+    >
+  </div>
 </div>

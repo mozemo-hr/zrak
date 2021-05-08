@@ -12,4 +12,8 @@ export class DeviceDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  closeDetails(): void {
+    console.log('close details');
+  }
 }
