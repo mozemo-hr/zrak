@@ -10,7 +10,7 @@ import { DeviceService } from '@app/_services/device.service';
 export class DevicesPanelComponent implements OnInit {
   devices: Device[];
   selectedDevice: Device;
-  constructor(private deviceService: DeviceService) {}
+  constructor(public deviceService: DeviceService) {}
 
   ngOnInit(): void {
     this.deviceService.getDeviceLatest().subscribe((data) => {
@@ -20,7 +20,8 @@ export class DevicesPanelComponent implements OnInit {
     });
   }
 
-  openDetails(device): void {
-    this.selectedDevice = device;
+  openDetails(device: Device): void {
+    console.log(device);
+    this.deviceService.selectedDevice = device;
   }
 }

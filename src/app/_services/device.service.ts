@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Device } from '../_models/device';
@@ -9,7 +9,23 @@ import { DeviceTimespan } from '../_models/deviceTimespan';
   providedIn: 'root',
 })
 export class DeviceService {
+  private readonly _selectedDevice = new BehaviorSubject<Device>(null);
+
   constructor(private httpClient: HttpClient) {}
+
+  readonly selectedDevice$ = this._selectedDevice.asObservable();
+
+  get selectedDevice(): Device {
+    return this._selectedDevice.getValue();
+  }
+
+  set selectedDevice(val: Device) {
+    this._selectedDevice.next(val);
+  }
+
+  deselectDevice(): void {
+    this.selectedDevice = null;
+  }
 
   getDeviceLatest(): Observable<Device[]> {
     return this.httpClient.get<Device[]>(

@@ -1,4 +1,7 @@
 .device-details-header {
   display: flex;
   justify-content: space-between;
+  .close {
+    cursor: pointer;
+  }
 }

@@ -1,12 +1,17 @@
 <div class="devices-panel">
-  <div *ngIf="this.selectedDevice">
-    <app-device-details [device]="this.selectedDevice"></app-device-details>
+  <div *ngIf="this.deviceService.selectedDevice">
+    <app-device-details
+      [device]="this.deviceService.selectedDevice"
+    ></app-device-details>
   </div>
-  <mat-list *ngIf="!this.selectedDevice">
+  <mat-selection-list
+    *ngIf="!this.deviceService.selectedDevice"
+    [multiple]="false"
+  >
     <h3 mat-subheader>{{ this.devices?.length }} MJERNE STANICE</h3>
-    <mat-list-item *ngFor="let device of this.devices; last as last">
+    <mat-list-option *ngFor="let device of this.devices; last as last">
       <h4 mat-line (click)="openDetails(device)">{{ device.name }}</h4>
       <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-    </mat-list-item>
-  </mat-list>
+    </mat-list-option>
+  </mat-selection-list>
 </div>

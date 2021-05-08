@@ -66,6 +66,7 @@ export class MapComponent implements OnInit, AfterContentInit {
             radius: 200,
           }).on('click', (e) => {
             console.log('clicked ', device);
+            this.deviceService.selectedDevice = device;
           })
         );
       }
