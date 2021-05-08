@@ -7,19 +7,6 @@ const views = {
   zagreb: { lat: 45.795, long: 15.9319, zoom: 12 },
 };
 
-const pmToColor = (pm25: number, pm10: number) => {
-  // TODO add pm10 to the equation
-  if (pm25 < 20) {
-    return '#CBD244';
-  } else if (pm25 < 30) {
-    return '#FFD53B';
-  } else if (pm25 < 75) {
-    return '#FF7B7B';
-  } else {
-    return '#D963FF';
-  }
-};
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -69,16 +56,17 @@ export class MapComponent implements OnInit, AfterContentInit {
         zoomToBoundsOnClick: true,
         spiderfyOnMaxZoom: false,
       });
-      for (const sensor of data) {
-        if (sensor.x == null || sensor.y == null || sensor.pm25 == null)
+      for (const device of data) {
+        if (device.x == null || device.y == null || device.pm25 == null)
           continue;
         markers.addLayer(
-          Leaflet.circle([sensor.y, sensor.x], {
-            color: pmToColor(sensor.pm25, sensor.pm10),
+          Leaflet.circle([device.y, device.x], {
+            color: this.deviceService.pmToColor(device.pm25, device.pm10),
             fillOpacity: 0.6,
             radius: 200,
           }).on('click', (e) => {
-            console.log('clicked ', sensor);
+            console.log('clicked ', device);
+            this.deviceService.selectedDevice = device;
           })
         );
       }
