@@ -10,9 +10,12 @@ import { DeviceService } from '@app/_services/device.service';
 export class DevicesPanelComponent implements OnInit {
   devices: Device[];
   selectedDevice: Device;
+  minimised: Boolean;
+
   constructor(public deviceService: DeviceService) {}
 
   ngOnInit(): void {
+    this.minimised = true;
     this.deviceService.getDeviceLatest('zagreb').subscribe((data) => {
       this.devices = data.filter(
         (device) => device.x != null && device.y != null && device.pm25 != null
@@ -22,5 +25,9 @@ export class DevicesPanelComponent implements OnInit {
 
   openDetails(device: Device): void {
     this.deviceService.selectedDevice = device;
+  }
+
+  toggleMinimised(): void {
+    this.minimised = !this.minimised;
   }
 }
