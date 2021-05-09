@@ -13,7 +13,7 @@ export class DevicesPanelComponent implements OnInit {
   constructor(public deviceService: DeviceService) {}
 
   ngOnInit(): void {
-    this.deviceService.getDeviceLatest().subscribe((data) => {
+    this.deviceService.getDeviceLatest('zagreb').subscribe((data) => {
       this.devices = data.filter(
         (device) => device.x != null && device.y != null && device.pm25 != null
       );

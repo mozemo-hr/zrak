@@ -12,7 +12,7 @@ export class ServiceTestComponent implements OnInit {
   ngOnInit(): void {
     // get latest data of all devices
     // TODO: add city and source parameters, i.e. getDeviceLatest('zagreb','ekokarta');
-    this._deviceService.getDeviceLatest().subscribe((data) => {
+    this._deviceService.getDeviceLatest('zagreb').subscribe((data) => {
       console.log('latest data:');
       console.log(data);
     });

@@ -74,13 +74,9 @@ export class DeviceDetailsComponent implements OnDestroy {
     this.deviceService
       .getDeviceTimespan(this.device.deviceId, start, end)
       .subscribe((data) => {
-        console.log(
-          `device ${this.device.deviceId} data from ${start} to ${end}:`
-        );
         data.pm = data.pm.sort((a, b) =>
           a.measureTime > b.measureTime ? 1 : -1
         );
-        console.log(data.pm);
         let pm10 = null;
         if (data.pm.length > 0 && data.pm[0] != null) {
           pm10 = [];
