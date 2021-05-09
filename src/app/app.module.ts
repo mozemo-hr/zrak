@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 import { DevicesPanelComponent } from './components/devices-panel/devices-panel.component';
 import { InicijativaComponent } from './components/inicijativa/inicijativa.component';
+import { ZagadjenostComponent } from './components/zagadjenost/zagadjenost.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     DevicesPanelComponent,
     DeviceDetailsComponent,
     InicijativaComponent,
+    ZagadjenostComponent,
     DashboardComponent,
   ],
   imports: [
