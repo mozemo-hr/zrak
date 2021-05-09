@@ -1,4 +1,7 @@
-<div class="devices-panel" [class.minimised]="this.minimised">
+<div
+  class="devices-panel"
+  [class.minimised]="this.minimised && !this.deviceService.selectedDevice"
+>
   <div *ngIf="this.deviceService.selectedDevice">
     <app-device-details
       [device]="this.deviceService.selectedDevice"
@@ -9,27 +12,31 @@
     [multiple]="false"
   >
     <h3 (click)="toggleMinimised()" class="toggle-minimise" mat-subheader>
+      <span *ngIf="this.minimised" class="material-icons"> expand_less </span>
+      <span *ngIf="!this.minimised" class="material-icons"> expand_more </span>
       {{ this.devices?.length }} MJERNE STANICE
     </h3>
-    <mat-list-option
-      *ngFor="let device of this.devices; last as last"
-      (click)="openDetails(device)"
-    >
-      <div class="device-item">
-        <div class="device-item-info">
-          <span
-            class="material-icons"
-            [style.color]="
-              this.deviceService.pmToColor(device.pm25, device.pm10)
-            "
-          >
-            circle
-          </span>
-          <span mat-line>{{ device.name }}</span>
+    <div class="devices-list">
+      <mat-list-option
+        *ngFor="let device of this.devices; last as last"
+        (click)="openDetails(device)"
+      >
+        <div class="device-item">
+          <div class="device-item-info">
+            <span
+              class="material-icons"
+              [style.color]="
+                this.deviceService.pmToColor(device.pm25, device.pm10)
+              "
+            >
+              circle
+            </span>
+            <span mat-line>{{ device.name }}</span>
+          </div>
+          <span class="material-icons"> chevron_right </span>
         </div>
-        <span class="material-icons"> chevron_right </span>
-      </div>
-      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-    </mat-list-option>
+        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+      </mat-list-option>
+    </div>
   </mat-selection-list>
 </div>

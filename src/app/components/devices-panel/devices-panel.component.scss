@@ -28,7 +28,11 @@
   left: 0px;
   bottom: 0px;
   height: 450px;
-  overflow: auto;
+
+  .devices-list {
+    overflow: auto;
+    height: 400px;
+  }
 
   @media screen and (min-width: 960px) {
     top: 300px;
@@ -55,6 +59,10 @@
 
     .toggle-minimise {
       cursor: default;
+
+      .material-icons {
+        display: none;
+      }
     }
   }
 
