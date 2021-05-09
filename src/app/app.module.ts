@@ -16,7 +16,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 import { DevicesPanelComponent } from './components/devices-panel/devices-panel.component';
 import { InicijativaComponent } from './components/inicijativa/inicijativa.component';
+import { ZagadjenostComponent } from './components/zagadjenost/zagadjenost.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LebdeceCesticeComponent } from './components/lebdece-cestice/lebdece-cestice.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     DevicesPanelComponent,
     DeviceDetailsComponent,
     InicijativaComponent,
+    ZagadjenostComponent,
     DashboardComponent,
+    LebdeceCesticeComponent,
   ],
   imports: [
     AppRoutingModule,

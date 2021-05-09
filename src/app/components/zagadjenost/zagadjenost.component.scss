@@ -1,0 +1,83 @@
+.content {
+  margin: 5vmin;
+  display: flex;
+  flex-direction: column;
+}
+
+.heavy {
+  font-weight: 700;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  /* or 144% */
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #373737;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.razina {
+  padding-left: 5vw;
+  margin-top: 3vh;
+}
+
+.niska {
+  background-color: #C8D300;
+}
+
+.granicna {
+  background-color: #FFD53B;
+}
+
+.visoka {
+  background-color: #FF7B7B;
+}
+
+.vrlo-visoka {
+  background-color: #D963FF;
+}
+
+table {
+  text-align: left;
+  vertical-align: middle;
+  width: 50%;
+}
+
+td {
+  display: inline-flexbox;
+  padding: 5px;
+}
+
+.info {
+  text-decoration: underline;
+}
+
+.num {
+  position: relative;
+  bottom: 5px;
+  left: 5px;
+}
