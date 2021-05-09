@@ -15,7 +15,7 @@ import { MapComponent } from './components/map/map.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 import { DevicesPanelComponent } from './components/devices-panel/devices-panel.component';
-import { AboutComponent } from './components/about/about.component';
+import { InicijativaComponent } from './components/inicijativa/inicijativa.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HeaderComponent,
     DevicesPanelComponent,
     DeviceDetailsComponent,
-    AboutComponent,
+    InicijativaComponent,
     DashboardComponent,
   ],
   imports: [

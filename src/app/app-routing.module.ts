@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AboutComponent } from './components/about/about.component';
+import { InicijativaComponent } from './components/inicijativa/inicijativa.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: 'inicijativa', component: AboutComponent },
-  { path: 'zasto-mjerimo', component: AboutComponent },
-  { path: 'legenda', component: AboutComponent },
+  { path: 'inicijativa', component: InicijativaComponent },
+  { path: 'zasto-mjerimo', component: InicijativaComponent },
+  { path: 'zagadjenost', component: InicijativaComponent },
   { path: '**', component: DashboardComponent },
 ];
 
