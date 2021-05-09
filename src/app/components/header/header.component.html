@@ -23,6 +23,17 @@
         menu
       </span>
     </mat-toolbar-row>
+    <div class="legend-title" *ngIf="showLegend">
+      <a href="/legenda">
+        <span>ZAGAĐENOST ZRAKA LEBDEĆIM ČESTICAMA</span>
+      </a>
+    </div>
+    <div class="legend" *ngIf="showLegend">
+      <div class="legend-item low">Niska</div>
+      <div class="legend-item moderate">Umjerena</div>
+      <div class="legend-item high">Visoka</div>
+      <div class="legend-item extreme">Vrlo visoka</div>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
