@@ -23,6 +23,15 @@
         menu
       </span>
     </mat-toolbar-row>
+    <div class="legend-title" *ngIf="showLegend">
+      <span>Koncentracija lebdećih čestica</span>
+    </div>
+    <div class="legend" *ngIf="showLegend">
+      <div class="legend-item low">Niska</div>
+      <div class="legend-item moderate">Umjerena</div>
+      <div class="legend-item high">Visoka</div>
+      <div class="legend-item extreme">Vrlo visoka</div>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
