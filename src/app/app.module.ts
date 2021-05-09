@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 import { DevicesPanelComponent } from './components/devices-panel/devices-panel.component';
 import { AboutComponent } from './components/about/about.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AboutComponent } from './components/about/about.component';
     DevicesPanelComponent,
     DeviceDetailsComponent,
     AboutComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

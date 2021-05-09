@@ -66,22 +66,29 @@ $zrak-theme: mat-light-theme(
 .leaflet-container {
   background-color: #fff !important;
 }
-
 html,
 body {
   height: 100%;
+  min-height: 100% !important;
 }
 
 html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  height: -webkit-fill-available;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 *,
 *:before,
 *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
   box-sizing: inherit;
-}
-
-body {
-  margin: 0;
 }
