@@ -13,6 +13,9 @@
     z-index: 1010;
     visibility: hidden;
   }
+  .mat-list-item {
+    height: 64px;
+  }
 }
 
 .header-toolbar {
@@ -27,16 +30,29 @@
   }
 }
 
-.project-title {
-  margin-bottom: 42px;
+.main-nav {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: space-between;
+  @media screen and (min-width: 960px) {
+    padding: 40px;
+  }
+}
 
+.project-title {
+  font-size: 31px;
+  line-height: 31px;
   font-family: 'Surogat Black Italic', sans-serif;
-  font-style: italic;
   font-weight: 900;
-  font-size: 48px;
-  line-height: 47px;
   font-style: normal;
-  /* identical to box height */
+
+  @media screen and (min-width: 960px) {
+    // margin-bottom: 42px;
+    font-size: 48px;
+    line-height: 47px;
+  }
 
   a {
     display: inline;
@@ -45,24 +61,20 @@
   }
 }
 
-.title {
-  padding: 5px;
-  display: flex;
-  flex-direction: row;
-  align-content: flex-start;
-  justify-content: space-around;
-}
-
 .about-links {
   margin-bottom: 20px;
+  margin-right: 20px;
+  @media screen and (min-width: 960px) {
+    margin-right: 20px;
+  }
 
   // font-family: 'TyponineSans Pro', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  /* identical to box height */
-  text-transform: uppercase;
+  position: relative;
+  top: 10px;
   a {
     display: inline;
     text-decoration: none;
@@ -71,7 +83,20 @@
 }
 
 .logo {
-  margin-bottom: 37px;
+  // margin-bottom: 37px;
+  margin-top: 3px;
+  position: absolute;
+  right: 60px;
+  img {
+    height: 36px;
+  }
+  @media screen and (min-width: 960px) {
+    position: relative;
+    right: unset;
+    img {
+      height: 50px;
+    }
+  }
 }
 
 .legend-title {
