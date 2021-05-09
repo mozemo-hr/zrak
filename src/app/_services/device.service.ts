@@ -27,10 +27,14 @@ export class DeviceService {
     this.selectedDevice = null;
   }
 
-  getDeviceLatest(): Observable<Device[]> {
+  getDeviceLatest(city): Observable<Device[]> {
+    let params: any = {};
+    if (city) {
+      params.city = city;
+    }
     return this.httpClient.get<Device[]>(
       `${environment.apiUrl}/device/getLatest`,
-      { params: { city: 'zagreb' } }
+      { params: params }
     );
   }
 
@@ -44,9 +48,7 @@ export class DeviceService {
     );
   }
 
-  getDeviceSevenDayAverage(
-    deviceId: string
-  ): Observable<DeviceTimespan> {
+  getDeviceSevenDayAverage(deviceId: string): Observable<DeviceTimespan> {
     return this.httpClient.get<DeviceTimespan>(
       `${environment.apiUrl}/device/getLastSevenDaysAverage?deviceId=${deviceId}`
     );

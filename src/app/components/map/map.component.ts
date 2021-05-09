@@ -50,11 +50,13 @@ export class MapComponent implements OnInit, AfterContentInit {
 
     tileLayer.getContainer().style.filter = 'grayscale(0.8) opacity(75%)';
 
-    this.deviceService.getDeviceLatest().subscribe((data) => {
+    this.deviceService.getDeviceLatest('').subscribe((data) => {
       var markers = new MarkerClusterGroup({
-        disableClusteringAtZoom: 12,
+        // disableClusteringAtZoom: 12,
+        disableClusteringAtZoom: 11,
         zoomToBoundsOnClick: true,
         spiderfyOnMaxZoom: false,
+        showCoverageOnHover: false,
       });
       for (const device of data) {
         if (device.x == null || device.y == null || device.pm25 == null)
