@@ -1,6 +1,6 @@
 <header class="header">
   <mat-toolbar class="header-toolbar">
-    <mat-toolbar-row class="title">
+    <mat-toolbar-row class="main-nav">
       <span class="project-title"><a href="/">Otvoreni zrak</a></span>
       <div fxShow="true" fxHide.lt-md>
         <span class="about-links">
@@ -11,9 +11,9 @@
         </span>
         <span class="about-links"><a href="/legenda">O legendi ></a></span>
       </div>
-      <!-- <span class="logo">
+      <span class="logo">
         <img src="assets/images/mozemo_logo_green_1.svg" />
-      </span> -->
+      </span>
       <span
         class="menu-button material-icons"
         (click)="sidenav.toggle()"
@@ -28,7 +28,7 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a (click)="sidenav.toggle()" href="" mat-list-item>
+        <a (click)="sidenav.toggle()" mat-list-item>
           <span class="material-icons"> close </span>
         </a>
         <a href="/inicijativa" mat-list-item>O inicijativi ></a>
