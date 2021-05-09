@@ -1,29 +1,51 @@
-<header>
+<header class="header">
   <mat-toolbar class="header-toolbar">
     <mat-toolbar-row class="title">
       <span class="project-title"><a href="/">Otvoreni zrak</a></span>
-      <span class="about-links"></span>
-      <span class="about-links"></span>
-      <span class="about-links"
-        ><a href="/inicijativa">O inicijativi ></a></span
+      <div fxShow="true" fxHide.lt-md>
+        <span class="about-links">
+          <a href="/inicijativa">O inicijativi ></a>
+        </span>
+        <span class="about-links">
+          <a href="/zasto-mjerimo">Zašto mjerimo lebdeće čestice ></a>
+        </span>
+        <span class="about-links"><a href="/legenda">O legendi ></a></span>
+      </div>
+      <!-- <span class="logo">
+        <img src="assets/images/mozemo_logo_green_1.svg" />
+      </span> -->
+      <span
+        class="menu-button material-icons"
+        (click)="sidenav.toggle()"
+        fxShow="true"
+        fxHide.gt-sm
       >
-      <span class="about-links"
-        ><a href="/zasto-mjerimo">Zašto mjerimo lebdeće čestice ></a></span
-      >
-      <span class="about-links"><a href="/legenda">O legendi ></a></span>
-      <span class="about-links"></span>
-      <span class="logo"
-        ><img src="assets/images/mozemo_logo_green_1.svg"
-      /></span>
-    </mat-toolbar-row>
-    <mat-toolbar-row *ngIf="showLegend">
-      <span class="legend-title">Koncentracija lebdećih čestica</span>
-    </mat-toolbar-row>
-    <mat-toolbar-row class="legend" *ngIf="showLegend">
-      <div class="legend-item low">Niska</div>
-      <div class="legend-item moderate">Umjerena</div>
-      <div class="legend-item high">Visoka</div>
-      <div class="legend-item extreme">Vrlo visoka</div>
+        menu
+      </span>
     </mat-toolbar-row>
   </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a href="/inicijativa" mat-list-item>O inicijativi ></a>
+        <a href="/zasto-mjerimo" mat-list-item
+          >Zašto mjerimo lebdeće čestice ></a
+        >
+        <a href="/legenda" mat-list-item>O legendi ></a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+  </mat-sidenav-container>
 </header>
+
+<!-- <mat-toolbar-row *ngIf="showLegend">
+  <span class="legend-title">Koncentracija lebdećih čestica</span>
+</mat-toolbar-row>
+<mat-toolbar-row class="legend" *ngIf="showLegend">
+  <div class="legend-item low">Niska</div>
+  <div class="legend-item moderate">Umjerena</div>
+  <div class="legend-item high">Visoka</div>
+  <div class="legend-item extreme">Vrlo visoka</div>
+</mat-toolbar-row> -->
