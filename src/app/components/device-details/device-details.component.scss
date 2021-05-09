@@ -15,6 +15,7 @@
 }
 
 .device-details-content {
+  overflow: auto;
   padding: 15px;
   .mat-table {
     border-spacing: 0px 5px;
@@ -36,5 +37,9 @@
     position: relative;
     top: -5px;
     font-size: 14px;
+  }
+  .chart-container {
+    // max-width: 600px;
+    height: 200px;
   }
 }
