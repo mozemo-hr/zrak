@@ -55,6 +55,16 @@ export class DeviceDetailsComponent implements OnDestroy {
     return this.deviceService.pmToColor(undefined, this.device.pm10);
   }
 
+  deviceSource() {
+    let sourceName = '';
+    if (this.device.source.toLocaleLowerCase() === 'mozemo') {
+      sourceName = 'Možemo!';
+    } else {
+      sourceName = this.device.source;
+    }
+    return ` – ${sourceName}`;
+  }
+
   drawChart() {
     if (this.pmChart) {
       this.pmChart.destroy();
