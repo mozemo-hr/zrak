@@ -4,7 +4,9 @@
     [style.background-color]="this.deviceColor()"
   >
     <div class="header-text">
-      <span class="station-label">MJERNA POSTAJA</span>
+      <span class="station-label"
+        >MJERNA POSTAJA {{ this.deviceSource() }}</span
+      >
       <h4 subheading-1>{{ this.device.name }}</h4>
     </div>
     <mat-icon
