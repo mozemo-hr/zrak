@@ -44,6 +44,14 @@ export class DeviceService {
     );
   }
 
+  getDeviceSevenDayAverage(
+    deviceId: string
+  ): Observable<DeviceTimespan> {
+    return this.httpClient.get<DeviceTimespan>(
+      `${environment.apiUrl}/device/getLastSevenDaysAverage?deviceId=${deviceId}`
+    );
+  }
+
   pmToColor = (pm25: number, pm10: number) => {
     const colours = [
       '#CBD244', // dobro
