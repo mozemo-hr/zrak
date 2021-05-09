@@ -62,9 +62,7 @@ export class DeviceDetailsComponent implements OnDestroy {
     this.deviceService
       .getDeviceSevenDayAverage(this.device.deviceId)
       .subscribe((data) => {
-        console.log(
-          `device ${this.device.deviceId} data from last 7 days:`
-        );
+        console.log(`device ${this.device.deviceId} data from last 7 days:`);
         data.pm = data.pm.sort((a, b) =>
           a.measureTime > b.measureTime ? 1 : -1
         );
@@ -93,22 +91,28 @@ export class DeviceDetailsComponent implements OnDestroy {
               label: 'PM2.5',
               data: pm25,
               fill: false,
-              borderColor: 'rgba(255, 123, 123, 0.5)',
-              backgroundColor: 'rgba(255, 123, 123, 0.5)',
+              borderColor: 'rgba(151, 151, 151, 1)',
+              borderWidth: 1,
+              borderDash: [10, 10],
+              backgroundColor: 'transparent',
               pointBackgroundColor: pm25colors,
-              pointBorderColor: pm25colors
+              pointBorderColor: pm25colors,
+              pointRadius: 7,
             },
-          ]
+          ],
         };
         if (pm10) {
           chartData.datasets.push({
             label: 'PM10',
             data: pm10,
             fill: false,
-            borderColor: 'rgba(200, 212, 0, 0.5)',
-            backgroundColor: 'rgba(200, 212, 0, 0.5)',
+            borderColor: 'rgba(151, 151, 151, 1)',
+            borderWidth: 1,
+            borderDash: [],
+            backgroundColor: 'transparent',
             pointBackgroundColor: pm10colors,
-            pointBorderColor: pm10colors
+            pointBorderColor: pm10colors,
+            pointRadius: 7,
           });
         }
         const config: any = {
@@ -122,7 +126,7 @@ export class DeviceDetailsComponent implements OnDestroy {
                   unit: 'day',
                   round: 'day',
                   displayFormats: {
-                    day: 'd.M',
+                    day: 'd/M',
                   },
                 },
               },
