@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://proxyapizrak.mozemo.hr/api',
+  // apiUrl: 'https://proxyapizrak.mozemo.hr/api',
+  apiUrl: 'http://localhost:52157/api'
 };
 
 /*

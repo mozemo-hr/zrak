@@ -59,13 +59,11 @@ export class DeviceDetailsComponent implements OnDestroy {
     if (this.pmChart) {
       this.pmChart.destroy();
     }
-    var start = new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).getTime(); // 0 or 13 digits!
-    var end = new Date().getTime(); // 13 digits!
     this.deviceService
-      .getDeviceTimespan(this.device.deviceId, start, end)
+      .getDeviceSevenDayAverage(this.device.deviceId)
       .subscribe((data) => {
         console.log(
-          `device ${this.device.deviceId} data from ${start} to ${end}:`
+          `device ${this.device.deviceId} data from last 7 days:`
         );
         data.pm = data.pm.sort((a, b) =>
           a.measureTime > b.measureTime ? 1 : -1
@@ -77,8 +75,12 @@ export class DeviceDetailsComponent implements OnDestroy {
         }
         let pm25 = [];
         let labels = [];
+        let pm25colors = [];
+        let pm10colors = [];
         for (let el of data.pm) {
           labels.push(new Date(el.measureTime));
+          pm25colors.push(this.deviceService.pmToColor(el.pm25, undefined));
+          pm10colors.push(this.deviceService.pmToColor(undefined, el.pm10));
           if (pm10) {
             pm10.push(el.pm10);
           }
@@ -93,8 +95,10 @@ export class DeviceDetailsComponent implements OnDestroy {
               fill: false,
               borderColor: 'rgba(255, 123, 123, 0.5)',
               backgroundColor: 'rgba(255, 123, 123, 0.5)',
+              pointBackgroundColor: pm25colors,
+              pointBorderColor: pm25colors
             },
-          ],
+          ]
         };
         if (pm10) {
           chartData.datasets.push({
@@ -103,6 +107,8 @@ export class DeviceDetailsComponent implements OnDestroy {
             fill: false,
             borderColor: 'rgba(200, 212, 0, 0.5)',
             backgroundColor: 'rgba(200, 212, 0, 0.5)',
+            pointBackgroundColor: pm10colors,
+            pointBorderColor: pm10colors
           });
         }
         const config: any = {
@@ -113,6 +119,8 @@ export class DeviceDetailsComponent implements OnDestroy {
               x: {
                 type: 'time',
                 time: {
+                  unit: 'day',
+                  round: 'day',
                   displayFormats: {
                     day: 'd.M',
                   },
@@ -121,23 +129,6 @@ export class DeviceDetailsComponent implements OnDestroy {
             },
           },
         };
-        // const config: any = {
-        //   type: 'line',
-        //   data: {
-        //     datasets: [{ data: data.pm }],
-        //   },
-        //   options: {
-        //     parsing: {
-        //       xAxisKey: 'measureTime',
-        //       yAxisKey: 'pm25',
-        //     },
-        //     scales: {
-        //       x: {
-        //         type: 'time',
-        //       },
-        //     },
-        //   },
-        // };
         this.pmChart = new Chart(
           document.getElementById('chart') as HTMLCanvasElement,
           config
