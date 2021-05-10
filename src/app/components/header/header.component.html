@@ -4,16 +4,24 @@
       <span class="project-title"><a href="/">Otvoreni zrak</a></span>
       <div fxShow="true" fxHide.lt-md>
         <span class="about-links">
-          <a href="/inicijativa">O inicijativi ></a>
+          <a routerLink="/inicijativa">O inicijativi ></a>
         </span>
         <span class="about-links">
-          <a href="/lebdece-cestice">Zašto mjerimo lebdeće čestice (PM) ></a>
+          <a routerLink="/lebdece-cestice">
+            Zašto mjerimo lebdeće čestice (PM) >
+          </a>
         </span>
-        <span class="about-links"><a href="/zagadjenost">Zagađenost zraka lebdećim česticama ></a></span>
+        <span class="about-links">
+          <a routerLink="/zagadjenost">Zagađenost zraka lebdećim česticama ></a>
+        </span>
       </div>
+
       <span class="logo">
-        <img src="assets/images/mozemo_logo_green_1.svg" />
+        <a href="https://www.mozemo.hr/">
+          <img src="assets/images/mozemo_logo_green_1.svg" />
+        </a>
       </span>
+
       <span
         class="menu-button material-icons"
         (click)="sidenav.toggle()"
@@ -24,7 +32,7 @@
       </span>
     </mat-toolbar-row>
     <div class="legend-title" *ngIf="showLegend">
-      <a href="/legenda">
+      <a routerLink="/legenda">
         <span>ZAGAĐENOST ZRAKA LEBDEĆIM ČESTICAMA</span>
       </a>
     </div>
@@ -42,13 +50,13 @@
         <a (click)="sidenav.toggle()" mat-list-item>
           <span class="material-icons"> close </span>
         </a>
-        <a href="/zagadjenost" mat-list-item
+        <a routerLink="/zagadjenost" mat-list-item
           >Zagađenost zraka lebdećim česticama ></a
         >
-        <a href="/lebdece-cestice" mat-list-item
+        <a routerLink="/lebdece-cestice" mat-list-item
           >Zašto mjerimo lebdeće čestice (PM) ></a
         >
-        <a href="/inicijativa" mat-list-item>Otvoreni zrak ></a>
+        <a routerLink="/inicijativa" mat-list-item>Otvoreni zrak ></a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
