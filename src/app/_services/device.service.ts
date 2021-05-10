@@ -10,10 +10,12 @@ import { DeviceTimespan } from '../_models/deviceTimespan';
 })
 export class DeviceService {
   private readonly _selectedDevice = new BehaviorSubject<Device>(null);
+  private readonly _selectedCity = new BehaviorSubject<string>('zagreb');
 
   constructor(private httpClient: HttpClient) {}
 
   readonly selectedDevice$ = this._selectedDevice.asObservable();
+  readonly selectedCity$ = this._selectedCity.asObservable();
 
   get selectedDevice(): Device {
     return this._selectedDevice.getValue();
@@ -21,6 +23,14 @@ export class DeviceService {
 
   set selectedDevice(val: Device) {
     this._selectedDevice.next(val);
+  }
+
+  get selectedCity(): string {
+    return this._selectedCity.getValue();
+  }
+
+  set selectedCity(val: string) {
+    this._selectedCity.next(val);
   }
 
   deselectDevice(): void {

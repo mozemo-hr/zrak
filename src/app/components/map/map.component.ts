@@ -1,10 +1,12 @@
 import * as Leaflet from 'leaflet';
 import { MarkerClusterGroup } from 'leaflet.markercluster';
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, Input } from '@angular/core';
 import { DeviceService } from '@app/_services/device.service';
 
 const views = {
   zagreb: { lat: 45.795, long: 15.9319, zoom: 12 },
+  rijeka: { lat: 45.327, long: 14.442, zoom: 12 },
+  split: { lat: 43.508, long: 16.44, zoom: 12 },
 };
 
 @Component({
@@ -14,6 +16,19 @@ const views = {
 })
 export class MapComponent implements OnInit, AfterContentInit {
   map: Leaflet.Map;
+
+  private _city: string = 'zagreb';
+  public get city(): string {
+    return this._city;
+  }
+  @Input() //device: Device;
+  public set city(val: string) {
+    this._city = val;
+    if (this.map) {
+      const view = views[val];
+      this.map.setView([view.lat, view.long], view.zoom);
+    }
+  }
 
   constructor(private deviceService: DeviceService) {}
 
