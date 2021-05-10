@@ -11,11 +11,25 @@
     *ngIf="!this.deviceService.selectedDevice"
     [multiple]="false"
   >
-    <h3 (click)="toggleMinimised()" class="toggle-minimise" mat-subheader>
-      <span *ngIf="this.minimised" class="material-icons"> expand_less </span>
-      <span *ngIf="!this.minimised" class="material-icons"> expand_more </span>
-      {{ this.devices?.length }} MJERNE STANICE
-    </h3>
+    <div class="devices-list-header" mat-subheader>
+      <h3 (click)="toggleMinimised()" class="toggle-minimise">
+        <span *ngIf="this.minimised" class="material-icons"> expand_less </span>
+        <span *ngIf="!this.minimised" class="material-icons">
+          expand_more
+        </span>
+        {{ this.devices?.length }} MJERNE STANICE
+      </h3>
+      <div>
+        <span class="material-icons"> place </span>
+        <mat-form-field appearance="fill" class="city-switcher">
+          <mat-select [(value)]="this.city">
+            <mat-option value="zagreb">Zagreb</mat-option>
+            <mat-option value="rijeka">Rijeka</mat-option>
+            <!-- <mat-option value="split">Split</mat-option> -->
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
     <div class="devices-list">
       <mat-list-option
         *ngFor="let device of this.devices; last as last"

@@ -28,10 +28,24 @@
   left: 0px;
   bottom: 0px;
   height: 450px;
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+    // TODO: figure out how to do inside Material's theming
+  }
+
+  .devices-list-header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
 
   .devices-list {
     overflow: auto;
     height: 400px;
+  }
+
+  .city-switcher {
+    width: 150px;
   }
 
   @media screen and (min-width: 960px) {
@@ -47,6 +61,7 @@
   width: 100vw;
   .toggle-minimise {
     cursor: pointer;
+    flex-grow: 1;
   }
 
   @media screen and (min-width: 960px) {

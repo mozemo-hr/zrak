@@ -65,6 +65,10 @@ export class DeviceDetailsComponent implements OnDestroy {
     return ` – ${sourceName}`;
   }
 
+  deviceLastMeasureTime() {
+    return new Date(this.device.lastMeasureTime);
+  }
+
   drawChart() {
     if (this.pmChart) {
       this.pmChart.destroy();

@@ -28,7 +28,11 @@
       </thead>
       <tbody>
         <tr class="mat-row">
-          <td class="mat-header-cell">Na postaji</td>
+          <td class="mat-header-cell">
+            Zadnje izmjereno ({{
+              this.deviceLastMeasureTime() | date: 'short':'':'hr-HR'
+            }})
+          </td>
           <td class="mat-cell">
             <span class="material-icons" [style.color]="this.deviceColorPM25()">
               circle
