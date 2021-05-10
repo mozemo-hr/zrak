@@ -19,6 +19,7 @@ export class DevicesPanelComponent implements OnInit {
   @Input()
   public set city(val: string) {
     this._city = val;
+    this.deviceService.selectedCity = val;
     this.refreshDevices();
   }
 
