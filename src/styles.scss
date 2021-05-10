@@ -92,3 +92,17 @@ body {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  @media screen and (min-width: 960px) {
+    padding: 0 40px;
+  }
+  .page-title {
+    text-align: left;
+  }
+}
