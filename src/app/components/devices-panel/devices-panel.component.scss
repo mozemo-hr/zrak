@@ -37,6 +37,13 @@
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    max-height: 48px;
+    overflow: hidden;
+
+    .material-icons {
+      position: relative;
+      top: 6px;
+    }
   }
 
   .devices-list {
@@ -62,6 +69,7 @@
   .toggle-minimise {
     cursor: pointer;
     flex-grow: 1;
+    font-size: 14px;
   }
 
   @media screen and (min-width: 960px) {
