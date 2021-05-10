@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Device } from '@app/_models/device';
 import { DeviceService } from '@app/_services/device.service';
 
@@ -12,15 +12,21 @@ export class DevicesPanelComponent implements OnInit {
   selectedDevice: Device;
   minimised: Boolean;
 
+  private _city: string = 'zagreb';
+  public get city(): string {
+    return this._city;
+  }
+  @Input()
+  public set city(val: string) {
+    this._city = val;
+    this.refreshDevices();
+  }
+
   constructor(public deviceService: DeviceService) {}
 
   ngOnInit(): void {
     this.minimised = true;
-    this.deviceService.getDeviceLatest('zagreb').subscribe((data) => {
-      this.devices = data.filter(
-        (device) => device.x != null && device.y != null && device.pm25 != null
-      );
-    });
+    this.refreshDevices();
   }
 
   openDetails(device: Device): void {
@@ -29,5 +35,13 @@ export class DevicesPanelComponent implements OnInit {
 
   toggleMinimised(): void {
     this.minimised = !this.minimised;
+  }
+
+  refreshDevices() {
+    this.deviceService.getDeviceLatest(this.city).subscribe((data) => {
+      this.devices = data.filter(
+        (device) => device.x != null && device.y != null && device.pm25 != null
+      );
+    });
   }
 }

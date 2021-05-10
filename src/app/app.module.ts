@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,10 @@ import { InicijativaComponent } from './components/inicijativa/inicijativa.compo
 import { ZagadjenostComponent } from './components/zagadjenost/zagadjenost.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LebdeceCesticeComponent } from './components/lebdece-cestice/lebdece-cestice.component';
+import { registerLocaleData } from '@angular/common';
+import localeHr from '@angular/common/locales/hr';
+
+registerLocaleData(localeHr);
 
 @NgModule({
   declarations: [
@@ -39,12 +44,13 @@ import { LebdeceCesticeComponent } from './components/lebdece-cestice/lebdece-ce
     HttpClientModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule,
+    MatSelectModule,
     MatSidenavModule,
+    MatToolbarModule,
     TestModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'hr' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
