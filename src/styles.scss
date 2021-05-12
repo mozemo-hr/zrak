@@ -61,6 +61,10 @@ $zrak-theme: mat-light-theme(
 // that you are using.
 @include angular-material-theme($zrak-theme);
 
+.cdk-overlay-container {
+  z-index: 1002;
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 .leaflet-container {
