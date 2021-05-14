@@ -7,6 +7,7 @@ const views = {
   zagreb: { lat: 45.795, long: 15.9319, zoom: 12 },
   rijeka: { lat: 45.327, long: 14.442, zoom: 12 },
   split: { lat: 43.508, long: 16.44, zoom: 12 },
+  pula: { lat: 44.8666, long: 13.8496, zoom: 13 },
 };
 
 @Component({
