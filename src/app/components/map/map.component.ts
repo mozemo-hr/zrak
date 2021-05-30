@@ -56,7 +56,7 @@ export class MapComponent implements OnInit, AfterContentInit {
     */
 
     const tileLayer = Leaflet.tileLayer(
-      'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
         maxZoom: 19,
         attribution:
