@@ -41,7 +41,7 @@
             <span
               class="material-icons"
               [style.color]="
-                this.deviceService.pmToColor(device.pm25, device.pm10)
+                this.deviceService.pmToColor(device.pm25, device.pm10, device.lastMeasureTime)
               "
             >
               circle
