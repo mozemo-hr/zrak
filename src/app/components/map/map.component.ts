@@ -79,7 +79,7 @@ export class MapComponent implements OnInit, AfterContentInit {
           continue;
         markers.addLayer(
           Leaflet.circle([device.y, device.x], {
-            color: this.deviceService.pmToColor(device.pm25, device.pm10),
+            color: this.deviceService.pmToColor(device.pm25, device.pm10, device.lastMeasureTime),
             fillOpacity: 0.6,
             radius: 200,
           }).on('click', (e) => {

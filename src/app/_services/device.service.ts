@@ -64,7 +64,7 @@ export class DeviceService {
     );
   }
 
-  pmToColor = (pm25: number, pm10: number) => {
+  pmToColor = (pm25: number, pm10: number, lastMeasureTime: number = null) => {
     const colours = [
       '#CBD244', // dobro
       '#CBD244', // prihvatljivo
@@ -73,6 +73,9 @@ export class DeviceService {
       '#D963FF', // vrlo loše
       '#D963FF', // izuzetno loše
     ];
+
+    const inactiveColor = '#BABABA'; // stanica nije bila aktivna >24h
+
     let pm25level: number, pm10level: number;
 
     if (pm25 == null) {
@@ -106,6 +109,8 @@ export class DeviceService {
     } else {
       pm10level = 5;
     }
+
+    if(lastMeasureTime != null && lastMeasureTime < (Date.now() - 86400000)) return inactiveColor; // stanica nije bila aktivna >24h
 
     return colours[Math.max(pm25level, pm10level)];
   };

@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import Chart from 'chart.js/auto';
-// import { Chart, registerables } from 'chart.js';
 import 'chartjs-adapter-luxon';
 import { DateTime } from 'luxon';
 
@@ -46,13 +45,13 @@ export class DeviceDetailsComponent implements OnDestroy {
   }
 
   deviceColor() {
-    return this.deviceService.pmToColor(this.device.pm25, this.device.pm10);
+    return this.deviceService.pmToColor(this.device.pm25, this.device.pm10, this.device.lastMeasureTime);
   }
   deviceColorPM25() {
-    return this.deviceService.pmToColor(this.device.pm25, undefined);
+    return this.deviceService.pmToColor(this.device.pm25, undefined, this.device.lastMeasureTime);
   }
   deviceColorPM10() {
-    return this.deviceService.pmToColor(undefined, this.device.pm10);
+    return this.deviceService.pmToColor(undefined, this.device.pm10, this.device.lastMeasureTime);
   }
 
   deviceSource() {
@@ -67,6 +66,10 @@ export class DeviceDetailsComponent implements OnDestroy {
 
   deviceLastMeasureTime() {
     return new Date(this.device.lastMeasureTime);
+  }
+
+  deviceHasStaleData() {
+    return (this.device.lastMeasureTime < (Date.now() - 86400000));
   }
 
   drawChart() {

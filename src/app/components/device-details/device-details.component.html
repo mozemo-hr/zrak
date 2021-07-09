@@ -17,7 +17,7 @@
       >close</mat-icon
     >
   </div>
-  <div class="device-details-content">
+  <div class="device-details-content" *ngIf="!this.deviceHasStaleData()">
     <table class="mat-table">
       <thead>
         <tr class="mat-header-row">
@@ -60,5 +60,8 @@
     <div class="chart-container">
       <canvas id="chart"></canvas>
     </div>
+  </div>
+  <div class="device-details-content" *ngIf="this.deviceHasStaleData()">
+    <p>Mjerenja trenutno nisu dostupna</p>
   </div>
 </div>
