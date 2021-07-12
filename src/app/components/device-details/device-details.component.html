@@ -63,5 +63,6 @@
   </div>
   <div class="device-details-content" *ngIf="this.deviceHasStaleData()">
     <p>Mjerenja trenutno nisu dostupna</p>
+    <a href="https://ekokartazagreb.stampar.hr/" *ngIf="this.device.source.toLocaleLowerCase() === 'ekokarta'">Pogledaj mjerenja na Ekokarti</a>
   </div>
 </div>
