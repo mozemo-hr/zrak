@@ -62,7 +62,30 @@
     </div>
   </div>
   <div class="device-details-content" *ngIf="this.deviceHasStaleData()">
-    <p>Mjerenja trenutno nisu dostupna</p>
-    <a href="https://ekokartazagreb.stampar.hr/" *ngIf="this.device.source.toLocaleLowerCase() === 'ekokarta'">Pogledaj mjerenja na Ekokarti</a>
+    <table class="mat-table">
+      <thead>
+        <tr class="mat-header-row">
+          <th class="mat-header-cell">MJERENJA TRENUTNO NISU DOSTUPNA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="mat-row">
+          <td class="mat-header-cell">
+            Zadnje izmjereno ({{
+              this.deviceLastMeasureTime() | date: 'short':'':'hr-HR'
+            }})
+          </td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-header-cell">
+            <a
+              href="https://ekokartazagreb.stampar.hr/"
+              *ngIf="this.device.source.toLocaleLowerCase() === 'ekokarta'"
+              >Pogledaj mjerenja na Ekokarti</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
