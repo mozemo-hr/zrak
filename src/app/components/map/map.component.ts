@@ -74,18 +74,53 @@ export class MapComponent implements OnInit, AfterContentInit {
         spiderfyOnMaxZoom: false,
         showCoverageOnHover: false,
       });
+      const svgUnselected =
+        '<svg width="79" height="79" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity=".9" filter="url(#filter0_d)"><path d="M39.5 70a29.5 29.5 0 100-59 29.5 29.5 0 000 59z" fill="#fff"/></g><g filter="url(#filter1_d)"><path d="M39.5 48a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" fill="#FFD53B"/></g><defs><filter id="filter0_d" x="0" y="0" width="79" height="79" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="-1"/><feGaussianBlur stdDeviation="5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter><filter id="filter1_d" x="22" y="22" width="35" height="35" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="-1"/><feGaussianBlur stdDeviation="5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>';
+      const icon = Leaflet.icon({
+        iconUrl: 'data:image/svg+xml;base64,' + btoa(svgUnselected),
+        iconSize: [76, 76],
+      });
+      const svg =
+        '<svg width="96" height="96" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity=".8" filter="url(#filter0_d)"><path d="M48 87a38 38 0 100-76 38 38 0 000 76z" fill="#FFD53B"/></g><g opacity=".8" filter="url(#filter1_d)"><path d="M48 60a10 10 0 100-21 10 10 0 000 21z" fill="#FFD53B"/><path d="M57 50a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#fff" stroke-width="3"/></g><defs><filter id="filter0_d" x="0" y="0" width="96" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="-1"/><feGaussianBlur stdDeviation="5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter><filter id="filter1_d" x="27" y="28" width="41" height="41" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="-1"/><feGaussianBlur stdDeviation="5"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>';
+      const iconSelected = Leaflet.icon({
+        iconUrl: 'data:image/svg+xml;base64,' + btoa(svg),
+        iconSize: [76, 76],
+      });
+      let lastSelected = null;
+
       for (const device of data) {
         if (device.x == null || device.y == null || device.pm25 == null)
           continue;
+        const color = this.deviceService.pmToColor(
+          device.pm25,
+          device.pm10,
+          device.lastMeasureTime
+        );
         markers.addLayer(
-          Leaflet.circle([device.y, device.x], {
-            color: this.deviceService.pmToColor(device.pm25, device.pm10, device.lastMeasureTime),
-            fillOpacity: 0.6,
-            radius: 200,
-          }).on('click', (e) => {
-            console.log('clicked ', device);
-            this.deviceService.selectedDevice = device;
-          })
+          Leaflet.marker([device.y, device.x], { icon: icon }).on(
+            'click',
+            (e) => {
+              console.log('clicked ', device);
+              this.deviceService.selectedDevice = device;
+              e.target.setIcon(iconSelected);
+              if (lastSelected) {
+                lastSelected.setIcon(icon);
+              }
+              lastSelected = e.target;
+            }
+          )
+          // Leaflet.circle([device.y, device.x], {
+          //   color: this.deviceService.pmToColor(
+          //     device.pm25,
+          //     device.pm10,
+          //     device.lastMeasureTime
+          //   ),
+          //   fillOpacity: 0.6,
+          //   radius: 200,
+          // }).on('click', (e) => {
+          //   console.log('clicked ', device);
+          //   this.deviceService.selectedDevice = device;
+          // })
         );
       }
       this.map.addLayer(markers);
