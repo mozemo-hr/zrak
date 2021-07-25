@@ -87,6 +87,11 @@
   }
 }
 
+.active {
+  text-decoration: underline !important;
+  font-weight: bold;
+}
+
 .logo {
   // margin-bottom: 37px;
   margin-top: 3px;

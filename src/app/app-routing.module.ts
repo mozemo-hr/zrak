@@ -7,9 +7,9 @@ import { ZagadjenostComponent } from './components/zagadjenost/zagadjenost.compo
 import { LebdeceCesticeComponent } from './components/lebdece-cestice/lebdece-cestice.component';
 
 const routes: Routes = [
-  { path: 'inicijativa', component: InicijativaComponent },
-  { path: 'lebdece-cestice', component: LebdeceCesticeComponent },
-  { path: 'zagadjenost', component: ZagadjenostComponent },
+  { path: 'inicijativa', component: InicijativaComponent, data: { name: "O inicijativi" } },
+  { path: 'lebdece-cestice', component: LebdeceCesticeComponent, data: { name: "Zašto mjerimo lebdeće čestice (PM)" } },
+  { path: 'zagadjenost', component: ZagadjenostComponent, data: { name: "Zagađenost zraka lebdećim česticama" } },
   { path: '**', component: DashboardComponent },
 ];
 

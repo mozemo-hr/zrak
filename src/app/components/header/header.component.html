@@ -3,16 +3,10 @@
     <mat-toolbar-row class="main-nav">
       <span class="project-title"><a href="/">Otvoreni zrak</a></span>
       <div fxShow="true" fxHide.lt-md>
-        <span class="about-links">
-          <a routerLink="/inicijativa">O inicijativi</a>
-        </span>
-        <span class="about-links">
-          <a routerLink="/lebdece-cestice">
-            Zašto mjerimo lebdeće čestice (PM)
+        <span *ngFor="let item of routes | keyvalue" class="about-links">
+          <a [routerLink]="'/' + item.key" [class.active]="current == item.key">
+            {{item.value}}
           </a>
-        </span>
-        <span class="about-links">
-          <a routerLink="/zagadjenost">Zagađenost zraka lebdećim česticama</a>
         </span>
       </div>
 
@@ -50,13 +44,12 @@
         <a (click)="sidenav.toggle()" mat-list-item>
           <span class="material-icons"> close </span>
         </a>
-        <a routerLink="/zagadjenost" mat-list-item
-          >Zagađenost zraka lebdećim česticama ></a
+        <a *ngFor="let item of routes | keyvalue"
+          [routerLink]="'/' + item.key" mat-list-item
+          [class.active]="current == item.key"
         >
-        <a routerLink="/lebdece-cestice" mat-list-item
-          >Zašto mjerimo lebdeće čestice (PM) ></a
-        >
-        <a routerLink="/inicijativa" mat-list-item>Otvoreni zrak ></a>
+          {{item.value}} >
+        </a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
